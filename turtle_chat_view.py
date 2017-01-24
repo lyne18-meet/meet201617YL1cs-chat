@@ -2,7 +2,13 @@
 #WRITE YOUR NAME HERE!
 
 #####################################################################################
-#                                   IMPORTS                                         #
+#                                  IMPORTS
+from turtle_chat_widgets import TextInput
+import turtle
+from turtle_chat_widgets import Button
+from turtle_chat_client import Client
+
+
 #####################################################################################
 #import the turtle module
 #import the Client class from the turtle_chat_client module
@@ -11,7 +17,22 @@
 #####################################################################################
 
 #####################################################################################
-#                                   TextBox                                         #
+#                                  TextBox
+class TextBox(TextInput):
+    def draw_box(self):
+        turtle.penup()
+        turtle.goto(self.pos)
+        turtle.pendown()
+        turtle.goto(0,self.height)
+        turtle.goto(self.width,self.height)
+        turtle.goto(self.width,0)
+        turtle.goto(self.pos)
+        turtle.mainloop()
+    def write_msg(self):
+        self.setup_listeners()
+        print(self.new_msg)
+        
+    
 #####################################################################################
 #Make a class called TextBox, which will be a subclass of TextInput.
 #Because TextInput is an abstract class, you must implement its abstract
@@ -188,3 +209,5 @@ if __name__ == '__main__':
         turtle.ontimer(check,_WAIT_TIME) #Check recursively
     check()
     turtle.mainloop()
+
+
