@@ -21,18 +21,20 @@ from turtle_chat_client import Client
 class TextBox(TextInput):
     def draw_box(self):
         turtle.penup()
-        turtle.goto(self.pos)
+        turtle.goto(-150,-self.height)
         turtle.pendown()
-        turtle.goto(0,self.height)
-        turtle.goto(self.width,self.height)
-        turtle.goto(self.width,0)
-        turtle.goto(self.pos)
+        turtle.goto(-150,-self.height*2)
+        turtle.goto(100,-self.height*2)
+        turtle.goto(100,-self.height)
+        turtle.goto(-150,-self.height)
         turtle.mainloop()
     def write_msg(self):
         self.setup_listeners()
         print(self.new_msg)
+        self.writer.write(self.new_msg)
+        self.writer.clear()
         
-    
+           
 #####################################################################################
 #Make a class called TextBox, which will be a subclass of TextInput.
 #Because TextInput is an abstract class, you must implement its abstract
