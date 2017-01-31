@@ -27,12 +27,16 @@ class TextBox(TextInput):
         turtle.goto(100,-self.height*2)
         turtle.goto(100,-self.height)
         turtle.goto(-150,-self.height)
+        turtle.hideturtle()
         turtle.mainloop()
     def write_msg(self):
-        self.setup_listeners()
-        print(self.new_msg)
+        self.writer.clear()    
         self.writer.write(self.new_msg)
-        self.writer.clear()
+        
+
+        
+        
+      
         
            
 #####################################################################################
