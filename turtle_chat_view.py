@@ -18,23 +18,33 @@ from turtle_chat_client import Client
 
 #####################################################################################
 #                                  TextBox
-class TextBox(TextInput):
-    def draw_box(self):
-        turtle.penup()
-        turtle.goto(-150,-self.height)
-        turtle.pendown()
-        turtle.goto(-150,-self.height*2)
-        turtle.goto(100,-self.height*2)
-        turtle.goto(100,-self.height)
-        turtle.goto(-150,-self.height)
-        turtle.hideturtle()
-        turtle.mainloop()
-    def write_msg(self):
-        self.writer.clear()    
-        self.writer.write(self.new_msg)
-        
+##class TextBox(TextInput):
+##    def draw_box(self):
+##        turtle.penup()
+##        turtle.goto(-150,-self.height)
+##        turtle.pendown()
+##        turtle.goto(-150,-self.height*2)
+##        turtle.goto(100,-self.height*2)
+##        turtle.goto(100,-self.height)
+##        turtle.goto(-150,-self.height)
+##        turtle.hideturtle()
+##        turtle.mainloop()
+##    def write_msg(self):
+##        self.writer.clear()
+##       self.writer.write(self.new_msg)    
+class SendButton(Button):
+     def __init__(self,my_turtle=None,shape=None,pos=(0,0),view=None):
+         super(SendButton,self).__init__(my_turtle=None,shape=None,pos=(0,0))
+         self.view=view
+     def fun(self,x=None,y=None):
+         self.view.send_msg()
+     
+         
+##         
+##        
 
         
+
         
       
         
@@ -100,6 +110,11 @@ class View:
     _LINE_SPACING=round(_SCREEN_HEIGHT/2/(_MSG_LOG_LENGTH+1))
 
     def __init__(self,username='Me',partner_name='Partner'):
+        self.username=username
+        self.partner_name= partner_name
+        my_client=View()
+        turtle.setup(width=200, height=200)
+        
         '''
         :param username: the name of this chat user
         :param partner_name: the name of the user you are chatting with
@@ -125,6 +140,7 @@ class View:
         #or at the end of the list using
         #   self.msg_queue.append(a_msg_string)
         self.msg_queue=[]
+        #for new_msg
 
         ###
         #Create one turtle object for each message to display.
