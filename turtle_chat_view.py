@@ -18,20 +18,21 @@ from turtle_chat_client import Client
 
 #####################################################################################
 #                                  TextBox
-##class TextBox(TextInput):
-##    def draw_box(self):
-##        turtle.penup()
-##        turtle.goto(-150,-self.height)
-##        turtle.pendown()
-##        turtle.goto(-150,-self.height*2)
-##        turtle.goto(100,-self.height*2)
-##        turtle.goto(100,-self.height)
-##        turtle.goto(-150,-self.height)
-##        turtle.hideturtle()
-##        turtle.mainloop()
-##    def write_msg(self):
-##        self.writer.clear()
-##       self.writer.write(self.new_msg)    
+class TextBox(TextInput):
+    def draw_box(self):
+        turtle.penup()
+        turtle.goto(-150,-self.height)
+        turtle.pendown()
+        turtle.goto(-150,-self.height*2)
+        turtle.goto(100,-self.height*2)
+        turtle.goto(100,-self.height)
+        turtle.goto(-150,-self.height)
+        turtle.hideturtle()
+        turtle.mainloop()
+    def write_msg(self):
+        self.writer.clear()
+        self.writer.write(self.new_msg)
+       
 class SendButton(Button):
      def __init__(self,my_turtle=None,shape=None,pos=(0,0),view=None):
          super(SendButton,self).__init__(my_turtle=None,shape=None,pos=(0,0))
@@ -40,8 +41,8 @@ class SendButton(Button):
          self.view.send_msg()
      
          
-##         
-##        
+         
+        
 
         
 
@@ -49,60 +50,60 @@ class SendButton(Button):
       
         
            
-#####################################################################################
+###################################################################################
 #Make a class called TextBox, which will be a subclass of TextInput.
 #Because TextInput is an abstract class, you must implement its abstract
 #methods.  There are two:
-#
+
 #draw_box
 #write_msg
-#
+
 #Hints:
 #1. in draw_box, you will draw (or stamp) the space on which the user's input
 #will appear.
-#
+
 #2. All TextInput objects have an internal turtle called writer (i.e. self will
 #   have something called writer).  You can write new text with it using code like
-#
-#   self.writer.write(a_string_variable)
-#
-#   and you can erase that text using
-#
-#   self.writer.clear()
-#
-#3. If you want to make a newline character (i.e. go to the next line), just add
-#   \r to your string.  Test it out at the Python shell for practice
-#####################################################################################
-#####################################################################################
 
-#####################################################################################
-#                                  SendButton                                       #
-#####################################################################################
+ #  self.writer.write(a_string_variable)
+
+  # and you can erase that text using
+
+   #self.writer.clear()
+
+#3. If you want to make a newline character (i.e. go to the next line), just add
+ #  \r to your string.  Test it out at the Python shell for practice
+###################################################################################
+###################################################################################
+
+###################################################################################
+  #                                SendButton                                       #
+###################################################################################
 #Make a class called SendButton, which will be a subclass of Button.
 #Button is an abstract class with one abstract method: fun.
 #fun gets called whenever the button is clicked.  It's jobs will be to
-#
-# 1. send a message to the other chat participant - to do this,
-#    you will need to call the send method of your Client instance
-# 2. update the messages that you see on the screen
-#
+
+ #1. send a message to the other chat participant - to do this,
+  #  you will need to call the send method of your Client instance
+ #2. update the messages that you see on the screen
+
 #HINT: You may want to override the __init__ method so that it takes one additional
-#      input: view.  This will be an instance of the View class you will make next
-#      That class will have methods inside of it to help
-#      you send messages and update message displays.
-#####################################################################################
-#####################################################################################
+ #     input: view.  This will be an instance of the View class you will make next
+  #    That class will have methods inside of it to help
+   #   you send messages and update message displays.
+###################################################################################
+###################################################################################
 
 
-##################################################################
-#                             View                               #
-##################################################################
+################################################################
+    #                         View                               #
+################################################################
 #Make a new class called View.  It does not need to have a parent
 #class mentioned explicitly.
-#
+
 #Read the comments below for hints and directions.
-##################################################################
-##################################################################
+################################################################
+################################################################
 class View:
     _MSG_LOG_LENGTH=5 #Number of messages to retain in view
     _SCREEN_WIDTH=300
@@ -112,7 +113,7 @@ class View:
     def __init__(self,username='Me',partner_name='Partner'):
         self.username=username
         self.partner_name= partner_name
-        my_client=View()
+        my_client=Client()+View()
         turtle.setup(width=200, height=200)
         
         '''
