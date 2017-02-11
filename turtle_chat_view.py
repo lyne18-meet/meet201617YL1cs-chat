@@ -116,6 +116,7 @@ class View:
         self.partner_name= partner_name
         self.my_client= Client()
         turtle.setup(width= self._SCREEN_WIDTH, height= self._SCREEN_HEIGHT)
+         
         
         '''
         :param username: the name of this chat user
@@ -162,7 +163,7 @@ class View:
 
         TB=TextBox()
         SB=SendButton()
-        V=View()        
+        
         ###
         #Call your setup_listeners() function, if you have one,
         #and any other remaining setup functions you have invented.
@@ -188,6 +189,11 @@ class View:
         return self.textbox.get_msg()
 
     def setup_listeners(self):
+        self.send_btn.fun()
+        turtle.onkeypress( self.add_send_btn, 'send_btn')
+        def add_send_btn(self):
+            self.send_msg()
+        
         '''
         Set up send button - additional listener, in addition to click,
         so that return button will send a message.
@@ -198,7 +204,6 @@ class View:
 
         Then, it can call turtle.listen()
         '''
-        pass
 
     def msg_received(self,msg):
         '''
