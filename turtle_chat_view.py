@@ -162,8 +162,7 @@ class View:
         ###
 
         TB=TextBox()
-        SB=SendButton()
-        
+        SB=SendButton(view=View())
         ###
         #Call your setup_listeners() function, if you have one,
         #and any other remaining setup functions you have invented.
@@ -184,7 +183,7 @@ class View:
         self.TextBox.clear_msg()
         self.display_msg()
         
-
+        
     def get_msg(self):
         return self.textbox.get_msg()
 
