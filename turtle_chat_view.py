@@ -144,13 +144,13 @@ class View:
         #   self.msg_queue.append(a_msg_string)
         self.msg_queue=[]
         self.turtle_list=[]
-        me=turtle.clone()
-        me.penup()
-        me.goto(-100,120)
+        self.me=turtle.clone()
+        self.me.penup()
+        self.me.goto(-100,120)
         partner=turtle.clone()
         partner.penup()
         partner.goto(-100,150)
-        self.msg_queue.append(me)
+        self.msg_queue.append(self.me)
         self.msg_queue.append(partner)
         #for msg in self.msg_queue:
         #    self.msg_queue.append(turtle.clone())
@@ -220,8 +220,7 @@ class View:
         '''
         print(msg) #Debug - print message
         show_this_msg=self.partner_name+' says:\r'+ msg
-        self.msg_queue.insert(0,a_msg_string)
-        self.msg_queue.append(a_msg_string)
+        self.msg_queue.insert(0,msg)
         self.display_msg()
         #Add the message to the queue either using insert (to put at the beginning)
         #or append (to put at the end).
@@ -229,12 +228,14 @@ class View:
         #Then, call the display_msg method to update the display
 
     def display_msg(self):
-        
+        self.me.clear()
+        self.me.write(self.msg_queue[0])
+       
         '''
         This method should update the messages displayed in the screen.
         You can get the messages you want from self.msg_queue
         '''
-        pass
+        
 ##############################################################
 ##############################################################
 
