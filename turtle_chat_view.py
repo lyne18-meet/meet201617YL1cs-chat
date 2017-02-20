@@ -29,6 +29,7 @@ class TextBox(TextInput):
         self.draw.goto(-self.width/2,-self.height)
         self.draw.goto(self.width/2,-self.height)
         self.draw.goto(self.width/2,0)
+        
 
     def write_msg(self):
         self.writer.clear()
@@ -229,7 +230,7 @@ class View:
 
     def display_msg(self):
         self.me.clear()
-        self.me.write(self.msg_queue[0])
+        self.me.write(self.msg_queue[0],font=('Arial',14,'normal'))
        
         '''
         This method should update the messages displayed in the screen.
@@ -238,7 +239,14 @@ class View:
         
 ##############################################################
 ##############################################################
-
+turtle.bgpic("bgimg.gif")
+turtle.pensize(3)
+turtle.pencolor("white")
+new_pos= turtle.pos()
+##x_pos= new_pos[0]
+##y_pos= new_pos[1]
+##if x_pos== 200/2:
+##    turtle.goto(-200/2,y_pos-1)
 
 #########################################################
 #Leave the code below for now - you can play around with#
