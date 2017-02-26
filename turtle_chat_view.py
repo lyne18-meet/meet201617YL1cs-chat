@@ -29,12 +29,13 @@ class TextBox(TextInput):
         self.draw.goto(-self.width/2,-self.height)
         self.draw.goto(self.width/2,-self.height)
         self.draw.goto(self.width/2,0)
-        
 
     def write_msg(self):
         self.writer.clear()
         self.writer.write(self.new_msg, font=('Arial',12,'normal'))
-       
+##        if self.TextBox.letters_per_line== 40:
+##            self.new_msg([40])+'\r'+self.new_msg
+##       
 class SendButton(Button):
      def __init__(self,my_turtle=None,shape=None,pos=(0,0),view=None):
          super(SendButton,self).__init__(my_turtle=None,shape=None,pos=(0,-150))
@@ -196,7 +197,8 @@ class View:
 
     def setup_listeners(self):
 
-        pass
+        turtle.onkeypress(self.send_btn.fun,"Return")
+        turtle.listen()
        
         
         '''
@@ -243,8 +245,14 @@ turtle.bgpic("bgimg.gif")
 turtle.pensize(3)
 turtle.pencolor("white")
 new_pos= turtle.pos()
+
+
+
+    
+    
+    
 ##x_pos= new_pos[0]
-##y_pos= new_pos[1]
+
 ##if x_pos== 200/2:
 ##    turtle.goto(-200/2,y_pos-1)
 
